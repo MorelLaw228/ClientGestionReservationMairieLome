@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9" [style]="{'margin-top':'20px' }">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+                <li class="breadcrumb-item active">Courses</li>
+            </ol>
+            <div class="jumbotron">
+              <h1>Course Categories!</h1>
+              <p>This is a list of course categories, click on each to see a list of courses for a given category.</p>
+            </div>
+            <h2 class="welcome">Welcome to World Explorer!</h2>
+  
+          <div class="jumbotron"[style]="{'height':'150px',
+                          'margin-bottom': '40px','background-color': 'red', 
+                          'border-radius': '15px'}">
+            <h2 [style]="{'color': 'white'}">RESPECT DES GESTES BARRIÈRES</h2>
+            <p [style]="{'color': 'white'}">Lors de votre utilisation des salles municipales, la mairie de Lomé vous invite à prendre toutes les précautions sanitaires : nettoyage
+               des mains, respect de la distanciation et port du masque dans les espaces clos.</p>
+          </div>
+  
+          <div [style]="{'margin-bottom': '80px'}">
+            <p>Les associations, entreprises et particuliers sont invités à utiliser le formulaire qui se trouve au bas de cette page pour effectuer leur demande de réservations. 
+              Elles peuvent également contacter le service réservations.</p>
+              <h2>Mairie de Lomé</h2>
+              <p>41, boulevard Henri IV – 63600 Ambert</p>
+              <ul>
+               <li><p>Tél. : 04 73 82 07 60</p></li> 
+                <li><p> Mail : service.reservations@ville-ambert.fr</p></li>
+               <li><p>Du lundi au jeudi de 8h à 12h et de 13h30 à 17h30 (16h30 le vendredi)</p></li> 
+              </ul>
+            </div>
+
+    
+        </div>
+        <router-outlet name="sidemenu"></router-outlet>
+    </div>
+  </div>
+               
+<app-footer></app-footer>

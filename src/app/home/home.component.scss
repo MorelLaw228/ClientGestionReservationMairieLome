@@ -1,0 +1,56 @@
+.welcome{
+    text-align: center;
+    width: 100%;
+    color: burlywood;
+  }
+  .jumbotron{
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+  }
+  
+  .jumbotron1{
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+  }
+  .wrapper{
+   
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: red($color: #000000);
+  }
+  .brebreadcrumb{
+    margin-left: 40px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: flex;
+  }
+  .col-xs-12 col-sm-9{
+    margin-top: 40px;
+  }
+  
+  .results {
+    display: flex;
+    flex: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+  
+  .card-biofood {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    /* background-color: #fff; */
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+  }
+  
+  

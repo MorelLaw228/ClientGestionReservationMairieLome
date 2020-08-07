@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>>
+
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9" [style]="{'margin-top':'20px' }">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+                <li class="breadcrumb-item active">Courses</li>
+            </ol>
+            <div class="jumbotron">
+              <h1>Demande de Réservation de Salles/Matériel</h1>
+            </div>
+          
+
+        </div>
+
+
+        <div class="container">
+            <div fxlayout="row" fxlayoutalign="center center" class="contant">
+              <mat-card class="card">
+                <p>iiiiip</p>
+
+                <div class="row m-3 results">
+                  <div class="card-biofood col-md-6 ml-3 mr-3">
+                      <div class="card-body">
+                          <form >
+                              <div class="form-group">
+                                  <label class="float-left">Prenom</label>
+                                  <input type="text" formControlName="firstName" class="form-control" />
+                                  <div  class="invalid-feedback">
+                                      <div >Le prenom est est obligatoire</div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="float-left">Nom</label>
+                                  <input type="text" formControlName="lastName" class="form-control" />
+                                  <div class="invalid-feedback">
+                                      <div >Le nom est est obligatoire</div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="float-left">Email</label>
+                                  <input type="text" formControlName="email" class="form-control" />
+                                  <div class="invalid-feedback">
+                                      <div >Email obligatoire</div>
+                                      <div >Veuillez saisir un email valide</div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="float-left">Téléphone</label>
+                                  <input type="text" formControlName="tel" class="form-control" />
+                                  <div class="invalid-feedback">
+                                      <div >Le téléphone est est obligatoire</div>
+                                      <div >Le numéro doit commencer par 06 ou 07 et avoir 10 chiffres.</div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="float-left">Adresse</label>
+                                  <input type="text" formControlName="adr" class="form-control" />
+                                  <div class="invalid-feedback">
+                                      <div >L'adresse est est obligatoire</div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="float-left">Carte de crédit</label>
+                                  <input type="text" formControlName="cb" class="form-control"  />
+                                  <div  class="invalid-feedback">
+                                      <div >Saisissez votre numéro de carte bancaire</div>
+                                  </div>
+                              </div>
+                              <div class="text-center">
+                                  <button class="btn btn-primary mr-1">Register</button>
+                                  <button class="btn btn-secondary" type="reset" >Cancel</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  
+                  </div>
+
+
+              </mat-card>
+            </div>
+          </div>
+        
+        <router-outlet name="sidemenu"></router-outlet>
+    </div>
+  </div>
+
+<app-footer></app-footer>
