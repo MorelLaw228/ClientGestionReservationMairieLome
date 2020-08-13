@@ -36,15 +36,25 @@ import {MaterialModule} from '../app/shared/material.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { NavbarComponent } from '../app/shared/navbar/navbar.component';
 import { FooterComponent } from '../app/shared/footer/footer.component';
 import {FormsModule} from '@angular/forms';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 import { RouterModule, Routes } from '@angular/router';
 import {SidemenuComponent} from '../app/shared/sidemenu/sidemenu.component';
 
 import { authInterceptorProviders} from '../app/_helpers/auth.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AcceuilComponent } from './acceuil/acceuil.component';
+import { ToastrModule } from 'ngx-toastr';
+import { UserDetailsComponent } from 'src/app/userPoste/user-details/user-details.component';
+import { ListUsersComponent } from './userPoste/list-users/list-users.component';
+import { PlanningComponent } from './planning/planning.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
 
 @NgModule({
   declarations: [
@@ -77,7 +87,12 @@ import { authInterceptorProviders} from '../app/_helpers/auth.interceptor';
     GardienProfileComponent,
     NavbarComponent,
     SidemenuComponent,
-    FooterComponent
+    FooterComponent,
+    AcceuilComponent,
+    UserDetailsComponent,
+    ListUsersComponent,
+    PlanningComponent,
+    SchedulerComponent
    
   ],
   imports: [
@@ -86,11 +101,18 @@ import { authInterceptorProviders} from '../app/_helpers/auth.interceptor';
     MaterialModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    NgxMaterialTimepickerModule,
     FormsModule,
     RouterModule,
     MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    NgbModule,
+    ScheduleModule, RecurrenceEditorModule
   ],
   exports:[RouterModule],
   providers: [authInterceptorProviders],

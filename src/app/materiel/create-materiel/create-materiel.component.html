@@ -1,1 +1,54 @@
-<p>create-materiel works!</p>
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+    </div>
+    <div>
+    <h1>Gestion Matériel</h1> 
+    </div>
+  </mat-toolbar>  
+    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+      <input type="hidden"  formControlName="id" id="id">
+     
+      <div class="form-group">
+        <label for="nomMat">Nom </label>
+        <input type="text" class="form-control" formControlName="nomMat" id="nomMat" >
+      </div>
+      <div class="form-group">
+        <label for="referenceMat">Référence :</label>
+        <input type="text" class="form-control" formControlName="referenceMat" id="referenceMat"   >
+      </div>
+      <div class="form-group">
+        <label for="prixMat">Prix Matériel :</label>
+        <input type="text" class="form-control" formControlName="prixMat" id="prixMat">
+      </div>
+      <div class="form-group">
+        <label for="etatMat">Etat :</label>
+        <input type="text" class="form-control" formControlName="etatMat" id="etatMat">
+      </div>
+      
+      <div class="form-group">
+          <label>Choisir une image :</label>
+              <input type="file" accept="image/*" (change)="onSelectFile($event)">
+              <img [src]="imgURL" height="200" *ngIf="imgURL">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Enrégistrer</button>
+        <a class="btn btn-outline-success" routerLink="/list-materiel"></a>
+      </div>
+    </form>
+   
+      
+      
+      
+  
+      
+      
+        
+       
+          
+        
+  
+  
+  
+  
+  
+  

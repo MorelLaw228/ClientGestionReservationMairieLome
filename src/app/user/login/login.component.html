@@ -8,9 +8,9 @@
                 <div class="col-5 fullImage imageBackground"></div>
                 <div class="col-7 formlogin">
                   <div class="content-center1">
-                    <h3 class="text-center title">Bienvenue à DoctoGest</h3>
-                    <p class="text-center  description">Joindre la solutions la plus utilisé par
-                      les doctorants dans le monde entier.</p>
+                    <h3 class="text-center title">Bienvenue à GestSalle</h3>
+                    <p class="text-center  description">Joindre la solution mise en place par la mairie
+                      de Lomé pour toute réservation de salles.</p>
                     <br>
                     <br>
                     <form   *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()"
@@ -30,12 +30,10 @@
                       Username is required!
                     </div>
 
-                      <div class="form-group">
+                      <div class="form-group" [style]="{'margin-top': '19px'}">
                         <input class="form-control" type="password" name="password" ngModel placeholder="Mot de passe"
-                          value="">
-                          <input  type="password"  class="form-control" name="password"
-                          [(ngModel)]="form.password" required minlength="6" #password="ngModel"
-                        />
+                          value="" [(ngModel)]="form.password" required minlength="6" #password="ngModel">
+                        
                         <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid"
                            >
                         <div *ngIf="password.errors.required">Password is required</div>
@@ -44,9 +42,10 @@
                         </div>
                       </div>
                       </div>
-                      <div class="form-group">
-                        <button type="submit" class="form-control"
-                          class="btn btn-primary btn-round btn-block">S'authentifier</button>
+                      <div class="form-group" [style]="{'margin-top': '30px'}">
+                        <button class="btn btn-warning"class="form-control" class="btn btn-primary btn-round btn-block"
+                            [disabled]="!f.form.valid">S'authentifier
+                        </button>
                       </div>
                       <div class="form-group">
                         <div

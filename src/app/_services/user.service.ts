@@ -22,11 +22,11 @@ export class UserService {
   }
 
   getGardienDashboard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+    return this.http.get(API_URL + 'gardien', { responseType: 'text' });
   }
 
   getEmployeDashboard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
+    return this.http.get(API_URL + 'employe', { responseType: 'text' });
   }
 
   getAdminDashBoard(): Observable<any> {

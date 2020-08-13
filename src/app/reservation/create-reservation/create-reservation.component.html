@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>>
+<app-navbar></app-navbar>
 
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
@@ -7,71 +7,102 @@
                 <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
                 <li class="breadcrumb-item active">Courses</li>
             </ol>
-            <div class="jumbotron">
+            <div class="jumbotron" [style]="{'margin-top':'20px','margin-bottom':'35px' }">
               <h1>Demande de Réservation de Salles/Matériel</h1>
             </div>
           
 
         </div>
 
+        <div class="cont">
+            <p>Complétez le formulaire ci-dessous pour nous faire parvenir votre demande de réservation de matériel et/ou de salle. 
+                Elle sera traitée par nos agents et une réponse vous sera apportée sous 8 jours.</p>
+        </div>
 
-        <div class="container">
+        <div class="container1">
             <div fxlayout="row" fxlayoutalign="center center" class="contant">
               <mat-card class="card">
-                <p>iiiiip</p>
 
-                <div class="row m-3 results">
-                  <div class="card-biofood col-md-6 ml-3 mr-3">
-                      <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+
+                <div class="jumbotron" [style]="{'background-color':'grey','margin-top':'20px','width':'650px','margin-bottom':'35px' }">
+                    <h1 [style]="{'font-size':'15px' }">Renseignements concernant le demandeur de la réservation</h1>
+                  </div>
+                <div [style]="{'margin-bottom':'15px' }">
+                  <div >
+                      <div >
                           <form >
                               <div class="form-group">
-                                  <label class="float-left">Prenom</label>
-                                  <input type="text" formControlName="firstName" class="form-control" />
-                                  <div  class="invalid-feedback">
-                                      <div >Le prenom est est obligatoire</div>
-                                  </div>
+                                  <label class="float-left" for="typeDemandeur">Type de demandeur<span class="req">*</span>:</label>
+                                  <input type="text" id="typeDemandeur" formControlName="typeDemandeur" class="form-control" />
+                                  <div * ngIf = "f.typeDemandeur.touched && f.typeDemandeur.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.Type.errors.required" > vous devez choisir un type de demande. </div>
+                                 
+                                </div>
                               </div>
-                              <div class="form-group">
-                                  <label class="float-left">Nom</label>
-                                  <input type="text" formControlName="lastName" class="form-control" />
-                                  <div class="invalid-feedback">
-                                      <div >Le nom est est obligatoire</div>
-                                  </div>
+                              <div class="form-row">
+                              <div class="form-group col">
+                                  <label class="float-left" for="nomAssociation">Nom de l'Association<span class="req">*</span>:</label>
+                                  <input type="text" id="nomAssociation" formControlName="nomAssociation" class="form-control" />
+                                  <div * ngIf = "f.nomAssociation.touched && f.nomAssociation.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.nomAssociation.errors.required" > Vous devez renseigner le nom de l'association . </div>
+                                 
+                                </div>
                               </div>
-                              <div class="form-group">
-                                  <label class="float-left">Email</label>
-                                  <input type="text" formControlName="email" class="form-control" />
-                                  <div class="invalid-feedback">
-                                      <div >Email obligatoire</div>
-                                      <div >Veuillez saisir un email valide</div>
-                                  </div>
+
+                              <div class="form-group col">
+                                <label for="dateReservation" >Date de la réservation  :</label>
+                                <input type="text" class="form-control" name="dateReservation" />
                               </div>
-                              <div class="form-group">
-                                  <label class="float-left">Téléphone</label>
-                                  <input type="text" formControlName="tel" class="form-control" />
-                                  <div class="invalid-feedback">
-                                      <div >Le téléphone est est obligatoire</div>
-                                      <div >Le numéro doit commencer par 06 ou 07 et avoir 10 chiffres.</div>
-                                  </div>
+                            </div>
+                              <div class="form-group col">
+                                <label class="float-left" for="nomResponsable ">Nom du responsable<span class="req">*</span>:</label>
+                                <input type="text" id="nomResponsable" formControlName="nomResponsable" class="form-control" />
+                                
+                                <div * ngIf = "f.nomResponsable.touched && f.nomResponsable.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.nomResponsable.errors.required" > Le nom du responsable  est obligatoire. </div>
+                                 
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adresseComplete" >Adresse complète</label>
+                                <textarea id="adresseComplete" class="form-control" formControlName="adresseComplete" rows="3" cols="50"  >
+                                 
+                                </textarea>
+                                <div *ngIf="f.adresseComplete.touched && f.adresseComplete.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.adresseComplete.errors.required">L'adresse est obligatoire.</div>
+                                </div>
                               </div>
-                              <div class="form-group">
-                                  <label class="float-left">Adresse</label>
-                                  <input type="text" formControlName="adr" class="form-control" />
-                                  <div class="invalid-feedback">
-                                      <div >L'adresse est est obligatoire</div>
-                                  </div>
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                   <label for="telephone" >Téléphone</label>
+                                   <input id="telephone" type="text" class="form-control" name="telephone" />
+                                   <div * ngIf = "f.telephone.errors.required" > Le téléphone  est obligatoire. </div>
+                                   <div * ngIf = "f.telephone.errors.minlength" > Le numéro de téléphone doit être composé de 8 chiffres. </div>
+                                   
+                                </div>
+                                
+                              <div class="form-group col">
+                                <label for="email" >Adresse mail  :</label>
+                                <input type="text" id="email" class="form-control" formControlName="email" name="email" />
+                                <div * ngIf = "f.email.touched && f.email.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.email.errors.required" > Un e-mail est requis. </div>
+                                    <div * ngIf = "f.email.errors.email" > Veuillez saisir une adresse e-mail valide. </div>
+                                </div>
+                                
+                            </div>
+                              <div class="form-group col">
+                                <label for="adressePostale" >Adresse Postale :</label>
+                                <input type="text" id="adressePostale" class="form-control" name="adressePostale" required />
+                                <div * ngIf = "f.adressePostale.touched && f.adressePostale.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.adressePostale.errors.required" > L'adresse postale  est requise. </div>
+                                    <div * ngIf = "f.adressePostale.errors.minlength" > L'adresse postale doit être constitué d'au moins 5 chiffres. </div>
+                                </div>
+                                
+                            </div>
                               </div>
-                              <div class="form-group">
-                                  <label class="float-left">Carte de crédit</label>
-                                  <input type="text" formControlName="cb" class="form-control"  />
-                                  <div  class="invalid-feedback">
-                                      <div >Saisissez votre numéro de carte bancaire</div>
-                                  </div>
-                              </div>
-                              <div class="text-center">
-                                  <button class="btn btn-primary mr-1">Register</button>
-                                  <button class="btn btn-secondary" type="reset" >Cancel</button>
-                              </div>
+                              
                           </form>
                       </div>
                   </div>
@@ -79,10 +110,130 @@
                   </div>
 
 
+
+                  <div  class="jumbotron" [style]="{'margin-top':'65px','background-color':'grey','width':'650px' }">
+                    <h1 [style]="{'font-size':'15px' }">Informations concernant la manifestation</h1>
+                  </div>
+                <div >
+                  <div >
+                      <div >
+                          <form >
+                              <div class="form-group">
+                                  <label class="float-left" for="intituleManif">Intitulé de la manifestation :</label>
+                                  <input type="text" id="intituleManif" formControlName="intituleManif" class="form-control" />
+                                  <div * ngIf = "f.intituleManif.touched && f.intituleManif.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.intituleManif.errors.required" > L'intitulé de la manifestation est obligatoire. </div>
+                                </div>
+                               
+                              </div>
+                              <div class="form-row">
+                              <div class="form-group col">
+                                  <label class="float-left" for="dateDebutReserv">Date de début :</label>
+                                  <input type="text" id="dateDebutReserv" formControlName="dateDebutReserv" class="form-control" />
+                                  <div * ngIf = "f.dateDebutReserv.touched && f.dateDebutReserv.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.dateDebutReserv.errors.required" > La date de début est obligatoire. </div>
+                                </div>
+                              </div>
+
+                              <div class="form-group col">
+                                <label for="heureDebut" >Heure de début :</label>
+                                <input type="text" id="heureDebut" class="form-control" name="heureDebut" />
+                                <div *ngIf="f.heureDebut.touched && f.heureDebut.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.heureDebut.errors.required">L'heure de début est obligatoire.</div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label class="float-left" for="dateFinReserv">Date de Fin :</label>
+                                    <input type="text" id="dateFinReserv"formControlName="dateFinReserv" class="form-control" />
+                                    <div * ngIf = "f.dateFinReserv.touched && f.dateFinReserv.invalid" class = "alert alert-danger" > 
+                                        <div * ngIf = "f.dateFinReserv.errors.required" > La date de fin est obligatoire. </div>
+                                    </div>
+                                  
+                                </div>
+  
+                                <div class="form-group col">
+                                  <label for="heureFin" >Heure de Fin :</label>
+                                  <input type="text" id="heureFin" class="form-control" name="heureFin" required minlength="3" maxlength="20"/>
+                                  <div * ngIf = "f.heureFin.touched && f.heureFin.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.heureFin.errors.required" > L'heure de fin est obligatoire. </div>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="form-group ">
+                                <label class="float-left" for="nbrePersonnes">Nombre de Personnes attendues :</label>
+                                <input type="text" id="nbrePersonnes" formControlName="nbrePersonnes" class="form-control" />
+                                <div * ngIf = "f.nbrePersonnes.touched && f.nbrePersonnes.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.nbrePersonnes.errors.required" > vous devez indiqué le nombre de personnes attendues. </div>
+                                </div>
+                            </div>
+                              <div class="form-group">
+                                <label class="float-left" for="descriptif">Descriptif de l'évènement :</label>
+                                <textarea   formControlName="descriptif" id="descriptif" 
+                                type="text" 
+                                class="form-control">
+                            </textarea>
+            
+                            </div>
+                              
+                          </form>
+                      </div>
+                  </div>
+                  
+                  </div>
+
+
+                  <div class="jumbotron" [style]="{'background-color':'grey','margin-top':'50px','width':'650px' }">
+                    <h1 [style]="{'font-size':'10px' }">Réservation souhaitée</h1>
+                  </div>
+                <div >
+                  <div >
+                      <div >
+                          <form >
+                              <div class="form-group">
+                                  <label class="float-left" for="salle">Salle <span class="req">*</span>:</label>
+                                  <input type="text" id="salle" formControlName="salle" class="form-control" />
+                                  <div * ngIf = "f.salle.touched && f.salle.invalid" class = "alert alert-danger" > 
+                                    <div * ngIf = "f.salle.errors.required" > vous devez choisir une salle. </div>
+                                </div>
+                                
+                              </div>
+                              <div class="form-group">
+                                <label class="float-left">Souhaitez-vous réserver un ou plusieurs matériels ? :</label>
+                                <select class="form-control">
+                                  <option >oui</option>
+                                  <option  selected>non</option>
+                              </select>    
+                              <span class="select-arrow"></span>
+                            </div>
+                            
+                          </form>
+                      </div>
+                  </div>
+                  
+                  </div>
+
+        
+             </form>
+
               </mat-card>
             </div>
           </div>
-        
+         <div>
+          
+              <div class="form-group form-check" [style]="{'margin-top':'50px' }">
+                <input type="checkbox" name="acceptTerms" id="acceptTerms" class="form-check-input"  required>
+                <label for="acceptTerms" class="form-check-label">En soumettant ce formulaire, 
+                    vous acceptez que les informations saisies soient utilisées dans le but de traiter votre demande et permettre à nos services de vous recontacter le cas échéant. Vous reconnaissez 
+                  avoir pris connaissance de notre politique de confidentialité. *</label>
+            </div>
+            <div class="text-left" [style]="{'margin-top':'25px' }">
+                <button class="btn btn-primary" type="submit" [disabled]="!form.valid" (click)="showToasterSuccess()">Valider votre demande</button>
+            </div>
+        </div>
+  
         <router-outlet name="sidemenu"></router-outlet>
     </div>
   </div>

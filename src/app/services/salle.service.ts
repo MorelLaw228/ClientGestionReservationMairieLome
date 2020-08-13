@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient , HttpRequest, HttpEvent} from '@angular/common/http';
+import { HttpClient , HttpRequest, HttpEvent, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Salle} from '../models/salle';
 import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule,Validators }
 from '@angular/forms';
+
+const httpOptions ={ headers:new HttpHeaders({'Content-Type':'application/json'}) };
 
 @Injectable({
   providedIn: 'root'

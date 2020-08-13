@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { SalleService } from 'src/app/services/salle.service';
 import { FormBuilder, Validators ,ReactiveFormsModule} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 
@@ -14,20 +15,16 @@ export class CreateSalleComponent implements OnInit {
   //CategorieList: Categorie[];
  // ScategorieList: any;
  // scategorie : any={};
-  wcode : string = '';
   userFile ;
   public imagePath;
   imgURL: any;
   public message: string;
-  constructor(public crudApi: SalleService ,public fb: FormBuilder/*,public toastr: ToastrService*/,
-   /* public scategorieService: ScategorieService,
-    public categorieService: CategorieService,*/
+  constructor(public crudApi: SalleService ,public fb: FormBuilder,public toastr: ToastrService,
     private router : Router,@Inject(MAT_DIALOG_DATA)  public data,
-    public dialogRef:MatDialogRef<CreateSalleComponent>,
-    
-    ) { }
+    public dialogRef:MatDialogRef<CreateSalleComponent>) { }
     get f() { return this.crudApi.dataForm.controls; }
-  ngOnInit() {
+ 
+    ngOnInit() {
    if (this.crudApi.choixmenu == "A")
     {this.infoForm()};
   /*  this.categorieService.getAll().subscribe(
@@ -91,15 +88,15 @@ addData() {
   formData.append('file',this.userFile);
   this.crudApi.createData(formData).subscribe( data => {
   
-    this.router.navigate(['/salles']); 
+    this.router.navigate(['/list-salle']); 
   });
 }
   updateData()
   {
     this.crudApi.updatedata(this.crudApi.dataForm.value.id,this.crudApi.dataForm.value).
     subscribe( data => {
-      this.dialogRef.close();
-      this.router.navigate(['/salles']); 
+     //this.dialogRef.close();
+      this.router.navigate(['/list-salle']); 
     });
   }
 
@@ -108,7 +105,7 @@ addData() {
     {
       const file = event.target.files[0];
       this.userFile = file;
-     // this.f['profile'].setValue(file);
+    //  this.f['profile'].setValue(file);
  
     var mimeType = event.target.files[0].type;
     if (mimeType.match(/image\/*/) == null) {

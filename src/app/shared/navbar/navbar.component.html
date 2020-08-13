@@ -3,15 +3,15 @@
   
   <div class="spacer2"></div>
   
-    <button mat-button>Acceuil</button>
-    <button mat-button>Reservation</button>
-    <button mat-button>A Propos</button>
-    <button mat-button>Contact Us</button>
+    <a  mat-button routerLink="/acceuil">Acceuil</a>
+    <a mat-button routerLink="/create-reservation" routerLink="active">Reservation</a>
+    <a mat-button routerLink="/apropos">A Propos</a>
+    <a mat-button routerLink="/contact">Contact Us</a>
   
     <div class="spacer"></div>
   
   
-    <button mat-raised-button color="accent" (click)="Login">Connexion</button>
+    <button mat-raised-button color="accent" routerLink="/login" (click)="Login">Connexion</button>
   
   </mat-toolbar>
   

@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
+  loading:boolean=false;
+  returnUrl:string;
   roles: string[] = [];
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
@@ -28,7 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.form).subscribe(
+    
+    this.authService.login(this.form)
+    .subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
@@ -37,6 +41,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
+        //this.redirectUser(data.role);
       },
       err => {
         this.errorMessage = err.error.message;
@@ -45,7 +50,18 @@ export class LoginComponent implements OnInit {
     );
   }
 
+
+/*redirectUser(userRole){
+  if(userRole==this.roles.USER){
+    this.router.navigate(['/admin-dashoard']);
+  }else if(userRole==Role.gardien){
+    this.router.navigate(['/gardien-dashboard']);
        
+  }else if(userRole ==Role.Admin){
+    this.router.navigate(['/employe-dashboard']);
+       
+  }
+}  */ 
   reloadPage() {
     window.location.reload();
   }

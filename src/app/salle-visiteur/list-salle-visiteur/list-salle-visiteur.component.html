@@ -1,2 +1,187 @@
 <app-navbar></app-navbar>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9" [style]="{'margin-top':'20px' }">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/home">Accueil</a></li>
+                <li class="breadcrumb-item active"></li>
+            </ol>
+            <div class="jumbotron">
+              <h1>Nos Salles </h1>
+              <p>
+                  La Mairie de Lomé met à votre disposition une gamme variée de salles pour tous vos évènements 
+               </p>
+            </div>
+           
+              <!--<div class="slide-container">
+                <span id="slider-image-1"></span>
+                <span id="slider-image-2"></span>
+                <span id="slider-image-3"></span>
+                <div class="image-container">            
+                    <img src="/assets/img/salle2.jpg" class="slider-image">
+                    <img src="/assets/img/salle2.jpg" class="slider-image">
+                    <img src="/assets/img/salle2.jpg" class="slider-image">                
+                </div>   
+                <div class="button-container">
+                  <a href="/list-salle-visiteur/#slider-image-1" class="slider-button"></a>
+                  <a href="#slider-image-2" class="slider-button"></a>
+                  <a href="#slider-image-3" class="slider-button"></a>
+
+                </div>  
+              </div>-->
+             <div class="body">
+
+              <div class="slidershow middle">
+                <div class="slides">
+                  <input type="radio" name="r" id="r1" checked>
+                  <input type="radio" name="r" id="r2">
+                  <input type="radio" name="r" id="r3">
+
+                  <div class="slide" s1 >
+                       <img src="/assets/img/salle2.jpg" alt="">
+                  </div>
+                  <div class="slide">
+                    <img src="/assets/img/salle3.jpg" alt="">
+               </div>
+               <div class="slide" >
+                <img src="/assets/img/salle3.jpg" alt="">
+               </div>
+                </div>
+
+                <div class="navigation">
+                  <label for="r1" class="bar"></label>
+                  <label for="r2" class="bar"></label>
+                  <label for="r3" class="bar"></label>
+                </div>
+              </div>
+            </div>
+              <div class="row">
+            <div class="card" style="width: 38rem; margin-right: 40px;">
+                <img src="/assets/img/salle2.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Salle commune</h5>
+                  <h5 class="card-title">Caractéristiques</h5>
+                  <li>
+                    <ul><p>Surface : </p></ul>
+                    <ul><p>Jauge :</p></ul>
+                    <ul><p>Equipement fixe :</p></ul>
+                    <ul><p>Description : </p></ul>
+                  </li>
+
+                  <h5 class="card-title">Tarifs</h5>
+                  <li>
+                    <ul><p>Associations : </p></ul>
+                    <ul><p>Particulier :</p></ul>
+                  </li>
+                  <a href="#" class="btn btn-primary">Consulter</a>
+                </div>
+              </div>
+            
+              <div class="card" style="width: 38rem; margin-right: 40px;">
+                <img src="/assets/img/salle3.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Salle des fêtes 1</h5>
+                  <p class="card-text">Some quick example text's content.</p>
+                  <h5 class="card-title">Salle commune</h5>
+                  <h5 class="card-title">Caractéristiques</h5>
+                  <li>
+                    <ul><p>Surface : </p></ul>
+                    <ul><p>Jauge :</p></ul>
+                    <ul><p>Equipement fixe :</p></ul>
+                    <ul><p>Description : </p></ul>
+                  </li>
+
+                  <h5 class="card-title">Tarifs</h5>
+                  <li>
+                    <ul><p>Associations : </p></ul>
+                    <ul><p>Particulier :</p></ul>
+                  </li>
+                  <a href="#" class="btn btn-primary">Consulter</a>
+                </div>
+              </div>
+            
+              <div class="card" style="width: 38rem;margin-right: 40px;">
+                <img src="/assets/img/salle4.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Salle des fêtes 2</h5>
+                  <p class="card-text">Some quick example text's content.</p>
+                  <h5 class="card-title">Salle commune</h5>
+                  <h5 class="card-title">Caractéristiques</h5>
+                  <li>
+                    <ul><p>Surface : </p></ul>
+                    <ul><p>Jauge :</p></ul>
+                    <ul><p>Equipement fixe :</p></ul>
+                    <ul><p>Description : </p></ul>
+                  </li>
+
+                  <h5 class="card-title">Tarifs</h5>
+                  <li>
+                    <ul><p>Associations : </p></ul>
+                    <ul><p>Particulier :</p></ul>
+                  </li>
+                  <a href="#" class="btn btn-primary">Consulter</a>
+                </div>
+              </div>
+              <div class="card" style="width: 38rem;margin-right: 40px;">
+                <img src="/assets/img/salle5.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Salles des fêtes 3</h5>
+                  <p class="card-text">Some quick example text's content.</p>
+                  <a href="#" class="btn btn-primary">Consulter</a>
+                </div>
+              </div>
+            
+              <div class="card" style="width: 38rem;margin-right: 40px;">
+                <img src="/assets/img/salle6.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Grande Salle</h5>
+                  <p class="card-text">Some quick example text's content.</p>
+                  <h5 class="card-title">Salle commune</h5>
+                  <h5 class="card-title">Caractéristiques</h5>
+                  <li>
+                    <ul><p>Surface : </p></ul>
+                    <ul><p>Jauge :</p></ul>
+                    <ul><p>Equipement fixe :</p></ul>
+                    <ul><p>Description : </p></ul>
+                  </li>
+
+                  <h5 class="card-title">Tarifs</h5>
+                  <li>
+                    <ul><p>Associations : </p></ul>
+                    <ul><p>Particulier :</p></ul>
+                  </li>
+                  <a href="#" class="btn btn-primary">Consulter</a>
+                </div>
+              </div>
+            
+              <div class="card" style="width: 38rem;margin-right: 40px;">
+                <img src="/assets/img/salle7.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Mini Salle</h5>
+                  <p class="card-text">Some quick example text's content.</p>
+                  <h5 class="card-title">Salle commune</h5>
+                  <h5 class="card-title">Caractéristiques</h5>
+                  <li>
+                    <ul><p>Surface : </p></ul>
+                    <ul><p>Jauge :</p></ul>
+                    <ul><p>Equipement fixe :</p></ul>
+                    <ul><p>Description : </p></ul>
+                  </li>
+
+                  <h5 class="card-title">Tarifs</h5>
+                  <li>
+                    <ul><p>Associations : </p></ul>
+                    <ul><p>Particulier :</p></ul>
+                  </li>
+                  <a href="#" class="btn btn-primary">Consulter</a>
+                </div>
+              </div>
+           </div>
+    
+        </div>
+        <router-outlet name="sidemenu"></router-outlet>
+    </div>
+  </div>
+
+  
 <app-footer></app-footer>
