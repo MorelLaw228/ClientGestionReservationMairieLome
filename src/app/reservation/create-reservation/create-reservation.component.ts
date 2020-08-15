@@ -55,8 +55,8 @@ submit(){
 
 public message: string;
 constructor(private notifyService : NotificationService,public crudApi: ReservationService ,public fb: FormBuilder,public toastr: ToastrService,
-  private router : Router,@Inject(MAT_DIALOG_DATA)  public data,
-  public dialogRef:MatDialogRef<CreateReservationComponent>) { }
+  private router : Router/*,@Inject(MAT_DIALOG_DATA)  public data,
+  public dialogRef:MatDialogRef<CreateReservationComponent>*/) { }
 
   get f() { 
     return this.crudApi.dataForm.controls; 

@@ -24,10 +24,10 @@ export class ListReservationComponent implements OnInit {
    reservation: Reservation;
   control: FormControl = new FormControl('');
   constructor(public crudApi: ReservationService,public toastr: ToastrService,
-    private router : Router,public fb: FormBuilder,
+    private router : Router,public fb: FormBuilder/*,
    private matDialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef:MatDialogRef<CreateReservationComponent>) { }
+    public dialogRef:MatDialogRef<CreateReservationComponent>*/) { }
  
   ngOnInit() {
     
@@ -41,7 +41,7 @@ export class ListReservationComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     //dialogConfig.data="gdddd";
-    this.matDialog.open(CreateReservationComponent, dialogConfig);
+    //this.matDialog.open(CreateReservationComponent, dialogConfig);
   }
  
   
@@ -75,7 +75,7 @@ export class ListReservationComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     
-    this.matDialog.open(CreateReservationComponent, dialogConfig);
+    //this.matDialog.open(CreateReservationComponent, dialogConfig);
   }
 
 }

@@ -28,6 +28,8 @@ import {GardienProfileComponent} from '../app/gardien-profile/gardien-profile.co
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import {ListSalleVisiteurComponent} from '../app/salle-visiteur/list-salle-visiteur/list-salle-visiteur.component';
 import {  ListUsersComponent} from '../app/userPoste/list-users/list-users.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import { SuiviComponent } from './suivi/suivi.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -39,14 +41,17 @@ const routes: Routes = [
   {path:'apropos',component:AproposComponent},
   {path:'add-materiel',component:CreateMaterielComponent},
   {path:'notfound',component:NotfoundComponent},
-
-  
  
+
+ 
+  
+  //{path:'list-materiel',component:ListMaterielComponent},
   {path:'list-salle-visiteur',component:ListSalleVisiteurComponent},
   
   {path:'admin-dashboard',component:AdminDashboardComponent,children:[
 
     {path:'list-salle',component:ListeSalleComponent},
+    {path:'suivi',component:SuiviComponent},
     {path:'add-salle',component:CreateSalleComponent},
     {path:'detail-salle',component:SalleDetailComponent},
     {path:'list-materiel',component:ListMaterielComponent},
@@ -59,7 +64,8 @@ const routes: Routes = [
     {path:'profile-admin',component:AdminProfileComponent},
     {path:'profile-employe',component:EmployeProfileComponent},
     {path:'profile-gardien',component:GardienDashboardComponent},
-    {path:'list-utilisateur',component:ListUsersComponent}
+    {path:'list-utilisateur',component:ListUsersComponent},
+    {path:'scheduler',component:SchedulerComponent}
   ]},
 
   {path:'employe-dashboard',component:EmployeDashboardComponent,children:[

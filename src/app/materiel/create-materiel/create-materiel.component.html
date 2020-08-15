@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" [style]="{'margin-bottom':'50px' }">
     <div fxHide.gt-xs>
     </div>
     <div>
@@ -9,30 +9,30 @@
       <input type="hidden"  formControlName="id" id="id">
      
       <div class="form-group">
-        <label for="nomMat">Nom </label>
-        <input type="text" class="form-control" formControlName="nomMat" id="nomMat" >
+        <label for="nom" [style]="{'font-weight':'bold' }"><b>Nom : </b></label>
+        <input type="text" class="form-control" formControlName="nom" id="nom" >
       </div>
       <div class="form-group">
-        <label for="referenceMat">Référence :</label>
-        <input type="text" class="form-control" formControlName="referenceMat" id="referenceMat"   >
+        <label for="referene" [style]="{'font-weight':'bold' }"><b>Référence :</b></label>
+        <input type="text" class="form-control" formControlName="referene" id="referene"   >
       </div>
       <div class="form-group">
-        <label for="prixMat">Prix Matériel :</label>
-        <input type="text" class="form-control" formControlName="prixMat" id="prixMat">
+        <label for="tarif" [style]="{'font-weight':'bold' }"><b>Prix Matériel :</b></label>
+        <input type="text" class="form-control" formControlName="tarif" id="tarif">
       </div>
       <div class="form-group">
-        <label for="etatMat">Etat :</label>
-        <input type="text" class="form-control" formControlName="etatMat" id="etatMat">
+        <label for="etat" [style]="{'font-weight':'bold' }"><b>Etat : </b></label>
+        <input type="text" class="form-control" formControlName="etat" id="etat">
       </div>
       
       <div class="form-group">
-          <label>Choisir une image :</label>
+          <label [style]="{'font-weight':'bold','margin-top':'30px','margin-bottom':'30px' }"><b>Choisir une image :</b></label>
               <input type="file" accept="image/*" (change)="onSelectFile($event)">
               <img [src]="imgURL" height="200" *ngIf="imgURL">
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Enrégistrer</button>
-        <a class="btn btn-outline-success" routerLink="/list-materiel"></a>
+        <button type="submit" class="btn btn-dark"  [style]="{'margin-top':'30px','width':'120px','height':'30px','font-size':'15px' }" (click)="showToasterSuccess()" class="btn btn-primary btn-block" >Enrégistrer</button>
+        <a class="btn btn-outline-success" routerLink="../list-materiel">List Matériel</a>
       </div>
     </form>
    

@@ -6,6 +6,9 @@
       Liste Matériel
     </div>
     </mat-toolbar>
+    <div [style]="{'margin-top':'20px','width':'150px','margin-bottom':'20px' }">
+      <a class="btn btn-outline-success" [style]="{'font-size':'15px','width':'150px' }"routerLink="../add-materiel"><i class="fa fa-plus-square"></i> Ajouter</a>
+    </div>
  <div class="pricing-header mx-auto">
    <div class="table-responsive">
     <table class="table table-bordered table-responsive-sm table-responsive-md
@@ -13,14 +16,15 @@
     <thead>
     <tr>
     <th scope="col">Nom</th>
-    <th scope="col">Réfdérence</th>
+    <th scope="col">Référence</th>
     <th scope="col">Prix</th>
     <th scope="col">Etat</th>
     
-    <th scope="col">Image </th>
-    <th>
-        <a class="btn btn-outline-success" routerLink="/add-materiel"><i class="fa fa-plus-square"></i> Ajouter</a>
-    </th>
+    <!--<th scope="col">Image </th>-->
+    <!--<th>
+        <a class="btn btn-outline-success" routerLink="../add-materiel"><i class="fa fa-plus-square"></i> Ajouter</a>
+    </th>-->
+    <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -29,21 +33,21 @@
     <tr *ngFor="let item of crudApi.listData ">
     <th class ="hidden">{{item.id}}</th>
     <td>{{item.nom}}</td>
-    <td>{{item.referenceMat}}</td>
-    <td>{{item.prixMat}}</td>
-    <td>{{item.etatMat}}</td>
-    <td><a href="#"><img class="card-img-top img-responsive"
-      src = "{{this.crudApi.host+'/api/Imgarticles/'+item.id}}" 
-      style = "height :100px;width:fil-content"
-     alt=""></a></td>
+    <td>{{item.referene}}</td>
+    <td>{{item.tarif}}</td>
+    <td>{{item.etat}}</td>
+    <!--<td><a href="#"><img class="card-img-top img-responsive"
+      src = "{{this.crudApi+'/api/Imgarticles/'+item.id}}" 
+      style = "height :10px;width:fil-content"
+     alt=""></a></td>-->
    
      <td>
-        <button class="btn btn-sm btn-info">
-          <i class="fa fa-search"></i>Details</button>
-        <button class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>Modifier</button>
-        <button class="btn btn-sm btn-danger">
-          <i class="fa fa-remove"></i>Supprimer</button>
+        <button class="btn btn-sm btn-info" >
+          <i class="fa fa-search" ></i>Details</button>
+        <button class="btn btn-sm btn-warning" >
+          <i class="fa fa-edit" ></i>Modifier</button>
+        <button class="btn btn-sm btn-danger" (click) = "removeData(item.id)">
+          <i class="fa fa-remove" ></i>Supprimer</button>
       </td>
       
     <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">

@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 import { MaterielService } from 'src/app/services/materiel.service';
+import {ToastrService} from 'ngx-toastr';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-create-materiel',
@@ -15,9 +17,9 @@ export class CreateMaterielComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
-  constructor(public crudApi: MaterielService ,public fb: FormBuilder/*,public toastr: ToastrService*/,
-    private router : Router,@Inject(MAT_DIALOG_DATA)  public data,
-    public dialogRef:MatDialogRef<CreateMaterielComponent>) { }
+  constructor(private notifyService : NotificationService,public crudApi: MaterielService ,public fb: FormBuilder/*,public toastr: ToastrService*/,
+    private router : Router,/*@Inject(MAT_DIALOG_DATA)  public data,
+    public dialogRef:MatDialogRef<CreateMaterielComponent>*/) { }
     get f() { return this.crudApi.dataForm.controls; }
  
     ngOnInit() {
@@ -25,13 +27,16 @@ export class CreateMaterielComponent implements OnInit {
     {this.infoForm()};
    }
   
+   showToasterSuccess(){
+    this.notifyService.showSuccess("Demande de réservation enrégistrée avec succès !!", "ItSolutionStuff.com")
+}
   infoForm() {
     this.crudApi.dataForm = this.fb.group({
         id: null,
-        nomMat: ['', [Validators.required]],
-        prixMat: [0, [Validators.required]],
-        referenceMat:[0,[Validators.required]],
-        etatMat: ['', [Validators.required]],
+        nom: ['', [Validators.required]],
+        tarif: [0, [Validators.required]],
+        referene:['',[Validators.required]],
+        etat: ['', [Validators.required]],
       
       });
     }
@@ -57,7 +62,7 @@ addData() {
   formData.append('file',this.userFile);
   this.crudApi.createData(formData).subscribe( data => {
   
-    this.router.navigate(['/list-materiel']); 
+    this.router.navigate(['./list-materiel']); 
   });
 }
  updateData()
@@ -65,7 +70,7 @@ addData() {
     this.crudApi.updatedata(this.crudApi.dataForm.value.id,this.crudApi.dataForm.value).
     subscribe( data => {
      // this.dialogRef.close();
-      this.router.navigate(['/list-materiel']); 
+      this.router.navigate(['./list-materiel']); 
     });
   }
 

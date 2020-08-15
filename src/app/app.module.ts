@@ -54,7 +54,8 @@ import { UserDetailsComponent } from 'src/app/userPoste/user-details/user-detail
 import { ListUsersComponent } from './userPoste/list-users/list-users.component';
 import { PlanningComponent } from './planning/planning.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
-import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, RecurrenceEditorModule ,DayService,WorkWeekService,WeekService,MonthService,MonthAgendaService} from '@syncfusion/ej2-angular-schedule';
+import { SuiviComponent } from './suivi/suivi.component';
 
 @NgModule({
   declarations: [
@@ -92,10 +93,12 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     UserDetailsComponent,
     ListUsersComponent,
     PlanningComponent,
-    SchedulerComponent
+    SchedulerComponent,
+    SuiviComponent
    
   ],
   imports: [
+   // DynamicModule.withComponents([YOUR_DIALOG_COMPONENT]),
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
@@ -115,7 +118,7 @@ import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-
     ScheduleModule, RecurrenceEditorModule
   ],
   exports:[RouterModule],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,DayService,WorkWeekService,WeekService,MonthService,MonthAgendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

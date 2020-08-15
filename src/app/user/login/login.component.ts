@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+//import {router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 
@@ -18,8 +20,9 @@ export class LoginComponent implements OnInit {
   loading:boolean=false;
   returnUrl:string;
   roles: string[] = [];
+  userRoles:string[]=[];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private router:Router,private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
 
   ngOnInit() {
@@ -40,8 +43,9 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
-        //this.redirectUser(data.role);
+        this.router.navigateByUrl('/admin-dashboard');
+        //this.reloadPage();
+        //this.redirectUser(this.roles);
       },
       err => {
         this.errorMessage = err.error.message;
@@ -51,8 +55,28 @@ export class LoginComponent implements OnInit {
   }
 
 
-/*redirectUser(userRole){
-  if(userRole==this.roles.USER){
+  logout() {
+    this.tokenStorage.signOut();
+    window.location.reload();
+    this.router.navigateByUrl('/admin-dashoard');
+  }
+
+
+redirectUser(userRoles){
+  if(userRoles=="ROLE_ADMIN"){
+    this.router.navigateByUrl('/admin-dashoard');
+   // this.router.navigate(['/admin-dashoard']);
+  }else if(userRoles=="ROLE_GARDIEN"){
+    this.router.navigateByUrl('/gardien-dashboard');
+    //this.router.navigate(['/gardien-dashboard']);
+       
+  }else if(userRoles == "ROLE_EMPLOYE"){
+    this.router.navigateByUrl('/employe-dashboard');
+    //this.router.navigate(['/employe-dashboard']);
+       
+  }
+}
+/* if(userRole==this.roles.USER){
     this.router.navigate(['/admin-dashoard']);
   }else if(userRole==Role.gardien){
     this.router.navigate(['/gardien-dashboard']);
@@ -61,7 +85,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/employe-dashboard']);
        
   }
-}  */ 
+}  */
+
+
   reloadPage() {
     window.location.reload();
   }

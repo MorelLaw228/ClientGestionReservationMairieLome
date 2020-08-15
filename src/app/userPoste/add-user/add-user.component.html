@@ -1,9 +1,20 @@
-<mat-toolbar color="primary">
+<!--<mat-toolbar color="primary">
     <div>
       <h1>Gestion des Utilisateurs</h1> 
     </div>
-  </mat-toolbar>  
-    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+  </mat-toolbar>  -->
+
+<!--<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+      <button mat-icon-button >
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div>
+  <h1>Gestion des Utilisateurs</h1> 
+  </div>
+</mat-toolbar> -->
+  <!--<form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
       <input type="hidden"  formControlName="id" id="id">
      
       <div class="form-group">
@@ -44,11 +55,13 @@
               <input type="file" accept="image/*" (change)="onSelectFile($event)">
               <img [src]="imgURL" height="200" *ngIf="imgURL">
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Enrégistrer</button>
-       <!--- <a class="btn btn-outline-success" routerLink="/list-utilisateur"><i class="fa fa-plus-square"></i> Liste</a>-->
-      </div>
-    </form>
+   
+     <div class="form-group" >
+      <button type="submit" [disabled]="!dataForm.valid" class="btn btn-warning" class="form-control" class="btn btn-primary btn-block">
+        Enrégistrer
+    </button>
+    </div>
+    </form>-->
    
       
       

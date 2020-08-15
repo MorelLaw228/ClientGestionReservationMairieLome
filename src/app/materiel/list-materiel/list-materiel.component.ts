@@ -3,6 +3,7 @@ import { Materiel } from 'src/app/models/materiel';
 import { FormControl, FormBuilder } from '@angular/forms';
 import { MaterielService } from 'src/app/services/materiel.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CreateMaterielComponent } from '../create-materiel/create-materiel.component';
 import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 
@@ -16,10 +17,10 @@ export class ListMaterielComponent implements OnInit {
 
   materiel : Materiel;
   control: FormControl = new FormControl('');
-  constructor(public crudApi: MaterielService, /*public toastr: ToastrService,*/
-    private router : Router,public fb: FormBuilder,private matDialog: MatDialog,
+  constructor(public crudApi: MaterielService, public toastr: ToastrService,
+    private router : Router,public fb: FormBuilder/*,private matDialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef:MatDialogRef<CreateMaterielComponent>) { }
+    public dialogRef:MatDialogRef<CreateMaterielComponent>*/) { }
  
   ngOnInit() {
     
@@ -33,7 +34,7 @@ export class ListMaterielComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     //dialogConfig.data="gdddd";
-    this.matDialog.open(CreateMaterielComponent, dialogConfig);
+   // this.matDialog.open(CreateMaterielComponent, dialogConfig);
   }
  
   
@@ -53,7 +54,7 @@ export class ListMaterielComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-         // this.toastr.warning(' Matéreil supprimé avec succès !'); 
+         this.toastr.warning(' Matéreil supprimé avec succès !'); 
           this.getData();
         },
         error => console.log(error));
@@ -67,7 +68,7 @@ export class ListMaterielComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     
-    this.matDialog.open(CreateMaterielComponent, dialogConfig);
+   // this.matDialog.open(CreateMaterielComponent, dialogConfig);
   }
 
 }

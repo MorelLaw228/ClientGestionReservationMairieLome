@@ -11,7 +11,7 @@ const httpOptions ={ headers:new HttpHeaders({'Content-Type':'application/json'}
   providedIn: 'root'
 })
 export class MaterielService {
-  private baseUrl = '/api/materiel';
+  private baseUrl = 'http://localhost:8080/api/materiels';
   //private baseUrl1 = '/api/saveUserServer';
   host :string = "http://localhost:8080";
 

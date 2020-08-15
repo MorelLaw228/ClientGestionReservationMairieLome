@@ -11,7 +11,7 @@ const httpOptions ={ headers:new HttpHeaders({'Content-Type':'application/json'}
   providedIn: 'root'
 })
 export class ReservationService {
-  private baseUrl = '/api/reservation';
+  private baseUrl = 'http://localhost:8080/api/reservations';
   //private baseUrl1 = '/api/saveUserServer';
   host :string = "http://localhost:8080";
 

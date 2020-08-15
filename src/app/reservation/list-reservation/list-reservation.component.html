@@ -15,15 +15,15 @@
     <th scope="col">Type</th>
     <th scope="col">Date Reservation </th>
     <th scope="col">Responsable/Association</th>
-    <th scope="col">dateDebutReserv</th>
-    <th scope="col">heureDebut</th>
-    <th scope="col">dateFinReserv</th>
-    <th scope="col">heureFin</th>
+    <th scope="col">Date début</th>
+    <th scope="col">heure Début</th>
+    <th scope="col">date Fin</th>
+    <th scope="col">heure Fin</th>
     <th scope="col">Nbre Personnes</th>
     
     <th scope="col">Salle</th>
     <th>
-        <a class="btn btn-outline-success" routerLink="/create-reservation"><i class="fa fa-plus-square"></i> Create New</a>
+        <a class="btn btn-outline-success" routerLink="./create-reservation"><i class="fa fa-plus-square"></i> Ajouter Réservation</a>
     </th>
     </tr>
     </thead>
@@ -33,14 +33,14 @@
     <tr *ngFor="let item of crudApi.listData ">
     <th class ="hidden">{{item.id}}</th>
     <td>{{item.typeDemandeur}}</td>
-    <td>{{item.dateReservation}}</td>
+    <td>{{item.date_reservation}}</td>
     <td>{{item.nomResponsable}}</td>
-    <td>{{item.dateDebutReserv}}</td>
-    <td>{{item.heureDebutReserv}}</td>
-    <td>{{item.dateFinReserv}}</td>
-    <td>{{item.heureFin}}</td>
-    <td>{{item.nbrePersonnes}}</td>
-    <td>{{item.salle}}</td>
+    <td>{{item.date_debut_reservation}}</td>
+    <td>{{item.heure_debut_reservation}}</td>
+    <td>{{item.date_fin_reservation}}</td>
+    <td>{{item.heure_fin_reservation}}</td>
+    <td>{{item.nbre_person}}</td>
+    <td>{{item.salle.nom}}</td>
    
      <td>
         <button class="btn btn-sm btn-info">

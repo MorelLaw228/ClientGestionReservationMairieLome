@@ -11,7 +11,8 @@ const httpOptions ={ headers:new HttpHeaders({'Content-Type':'application/json'}
   providedIn: 'root'
 })
 export class SalleService {
-  private baseUrl = '/api/salles';
+  private baseUrl = 'http://localhost:8080/api/salles';
+  private baseUrl2='http://localhost:8080/api/Salle';
   private baseUrl1 = '/api/saveUserServer';
   host :string = "http://localhost:8080";
 
@@ -23,7 +24,7 @@ export class SalleService {
   
 
   getData(id: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get(`${this.baseUrl2}/${id}`);
   }
  
   createData(formData: FormData): Observable<any> {

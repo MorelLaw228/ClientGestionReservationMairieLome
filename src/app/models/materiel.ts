@@ -1,7 +1,7 @@
 export class Materiel {
     id: number;
     nom: string;
-    reference:string;
-    prixMateriel:String;
-    etatMateriel:String;
+    referene:string;
+    tarif:String;
+    etat:String;
 }

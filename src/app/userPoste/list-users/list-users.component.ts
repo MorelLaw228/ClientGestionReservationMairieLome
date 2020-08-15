@@ -20,6 +20,9 @@ export class ListUsersComponent implements OnInit {
   }*/
 
   user : UserPoste;
+  utilisateur:any;
+  currentIndex=-1;
+  nom='';
   control: FormControl = new FormControl('');
   constructor(public crudApi: UserPosteService, public toastr: ToastrService,
     private router : Router,public fb: FormBuilder,
@@ -75,5 +78,17 @@ export class ListUsersComponent implements OnInit {
     
     this.matDialog.open(AddUserComponent, dialogConfig);
   }
+    searchName(){
+      this.crudApi.findByName(this.nom)
+      .subscribe(
+        data=> {
+          this.utilisateur=data;
+          console.log(data);
 
+        },
+        error => {
+          console.log(error);
+        }
+      )
+    }
 }

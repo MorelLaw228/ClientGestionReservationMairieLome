@@ -12,6 +12,7 @@ const httpOptions ={ headers:new HttpHeaders({'Content-Type':'application/json'}
 })
 export class UserPosteService {
   private baseUrl = '/api/users';
+  private baseUrl2='/api/auth/signup'
   private baseUrl1 = '/api/saveUserServer';
   host :string = "http://localhost:8080";
 
@@ -20,14 +21,14 @@ export class UserPosteService {
   public dataForm:  FormGroup; 
   constructor(private http: HttpClient) { }
  
-  
+
 
   getData(id: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
  
   createData(formData: FormData): Observable<any> {
-    return this.http.post(`${this.baseUrl}`, formData);
+    return this.http.post(`${this.baseUrl2}`, formData);
   }
   
   updatedata(id: number, value: any): Observable<Object> {
@@ -39,6 +40,10 @@ export class UserPosteService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
+  deleteAll()
+  {
+    return this.http.delete(`${this.baseUrl}`);
+  }
   getAll(): Observable<any> {
    
     return this.http.get(`${this.baseUrl}`);
@@ -54,6 +59,11 @@ export class UserPosteService {
 		});
 	
 		return this.http.request(req);
+   }
+
+   findByName(nom){
+     
+    return this.http.get(`${this.baseUrl}?nom=$(nom)`);
    }
 }
 

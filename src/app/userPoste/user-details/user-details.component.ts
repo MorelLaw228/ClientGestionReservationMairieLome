@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserPosteService } from 'src/app/services/user-poste.service';
+import {ActivatedRoute,Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor() { }
+  currentUserPoste=null;
+  message='';
+  constructor(
+    private userPostService:UserPosteService,
+    private route:ActivatedRoute,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
+    this.message='';
+  
+  }
+
+  updateUserPoste(){
+    this.userPostService.updatedata(this.currentUserPoste.id,this.currentUserPoste)
+    .subscribe(
+      response=> {
+        console.log(response);
+        this.message="L'utilisateur a été modifié avec succès"
+      },
+      error =>{
+        console.log(error);
+      }
+    )
   }
 
 }

@@ -20,8 +20,9 @@ export class CreateSalleComponent implements OnInit {
   imgURL: any;
   public message: string;
   constructor(public crudApi: SalleService ,public fb: FormBuilder,public toastr: ToastrService,
-    private router : Router,@Inject(MAT_DIALOG_DATA)  public data,
-    public dialogRef:MatDialogRef<CreateSalleComponent>) { }
+    private router : Router/*,@Inject(MAT_DIALOG_DATA)  public data,
+    public dialogRef:MatDialogRef<CreateSalleComponent>*/) { }
+
     get f() { return this.crudApi.dataForm.controls; }
  
     ngOnInit() {

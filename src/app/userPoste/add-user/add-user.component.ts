@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UserPosteService } from 'src/app/services/user-poste.service';
-import { ReactiveFormsModule, FormGroup} from '@angular/forms';
+import { ReactiveFormsModule, FormGroup,FormsModule, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -24,11 +24,21 @@ export class AddUserComponent implements OnInit {
   public imagePath;
   imgURL: any;
   public message: string;
-  //this.crudApi.dataForm : FormGroup;
+  dataForm:FormGroup;
   constructor(public crudApi: UserPosteService ,public fb: FormBuilder,public toastr: ToastrService,
     private router : Router,@Inject(MAT_DIALOG_DATA)  public data,
     public dialogRef:MatDialogRef<AddUserComponent>) { }
 
+   /* dataForm=new FormGroup({
+      id: null,
+      nom=new FormControl(''),
+      prenom=new FormControl(''),
+      adresse=new FormControl(''),
+      username=new FormControl(''),
+      mdp=new FormControl(''),
+      role=new FormControl(''),
+    
+    })*/
     get f() { 
       return this.crudApi.dataForm.controls; 
     }
@@ -39,7 +49,8 @@ export class AddUserComponent implements OnInit {
    }
   
   infoForm() {
-    this.crudApi.dataForm = this.fb.group({
+   // this.crudApi.dataForm
+    this.dataForm = this.fb.group({
         id: null,
         nom: ['', [Validators.required]],
         prenom: [0, [Validators.required]],

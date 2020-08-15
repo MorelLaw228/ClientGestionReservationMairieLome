@@ -19,10 +19,10 @@ export class ListeSalleComponent implements OnInit {
   salle : Salle;
   control: FormControl = new FormControl('');
   constructor(public crudApi: SalleService,public toastr: ToastrService,
-    private router : Router,public fb: FormBuilder,
+    private router : Router,public fb: FormBuilder/*,
   private matDialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef:MatDialogRef<CreateSalleComponent>) { }
+    public dialogRef:MatDialogRef<CreateSalleComponent>*/) { }
  
   ngOnInit() {
     
@@ -36,7 +36,7 @@ export class ListeSalleComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     //dialogConfig.data="gdddd";
-    this.matDialog.open(CreateSalleComponent, dialogConfig);
+   // this.matDialog.open(CreateSalleComponent, dialogConfig);
   }
  
   
@@ -70,7 +70,7 @@ export class ListeSalleComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     
-    this.matDialog.open(CreateSalleComponent, dialogConfig);
+    //this.matDialog.open(CreateSalleComponent, dialogConfig);
   }
 
 
